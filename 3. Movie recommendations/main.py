@@ -1,10 +1,13 @@
+# Author: Damian Eggert s19766
+# Author: Adrian Paczewski s14973
+
 import argparse
 import json
-
 import imdb
 import numpy as np
 
 from compute_scores import euclidean_score
+from manhattan_score import manhattan_score
 
 
 def build_arg_parser():
@@ -33,6 +36,9 @@ def find_similar_users(dataset, user, num_users):
     # Compute Pearson score between input user
     # and all the users in the dataset
     scores = np.array([[x, euclidean_score(dataset, user,
+                                           x)] for x in dataset if x != user])
+
+    scores = np.array([[x, manhattan_score(dataset, user,
                                            x)] for x in dataset if x != user])
 
     # Sort the scores in decreasing order

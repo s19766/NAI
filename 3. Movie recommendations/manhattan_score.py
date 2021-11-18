@@ -1,10 +1,11 @@
-# https://en.wikipedia.org/wiki/Euclidean_distance
+# https://en.wikipedia.org/wiki/Taxicab_geometry
+# https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/
+# https://numpy.org/doc/stable/index.html
 
 import numpy as np
 
 
-# Compute the Euclidean distance score between user1 and user2
-def euclidean_score(dataset, user1, user2):
+def manhattan_score(dataset, user1, user2):
     if user1 not in dataset:
         raise TypeError('Cannot find ' + user1 + ' in the dataset')
 
@@ -23,10 +24,10 @@ def euclidean_score(dataset, user1, user2):
     if len(common_movies) == 0:
         return 0
 
-    squared_diff = []
+    result = []
 
     for item in dataset[user1]:
         if item in dataset[user2]:
-            squared_diff.append(np.square(dataset[user1][item] - dataset[user2][item]))
+            result.append(np.fabs(dataset[user1][item] - dataset[user2][item]))
 
-    return 1 / (1 + np.sqrt(np.sum(squared_diff)))
+    return np.sum(result)
