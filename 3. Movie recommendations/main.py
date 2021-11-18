@@ -35,8 +35,8 @@ def find_similar_users(dataset, user, num_users):
 
     # Compute Pearson score between input user
     # and all the users in the dataset
-    scores = np.array([[x, euclidean_score(dataset, user,
-                                           x)] for x in dataset if x != user])
+    # scores = np.array([[x, euclidean_score(dataset, user,
+    #                                        x)] for x in dataset if x != user])
 
     scores = np.array([[x, manhattan_score(dataset, user,
                                            x)] for x in dataset if x != user])
