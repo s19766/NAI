@@ -5,6 +5,15 @@ import numpy as np
 
 # Compute the Euclidean distance score between user1 and user2
 def euclidean_score(dataset, user1, user2):
+    """
+            Parameters:
+                dataset (dict): File with data, json format
+                user1 (str): User to compare
+                user2 (str): User to compare
+
+            Return:
+                result (list): Return calculated distance
+    """
     if user1 not in dataset:
         raise TypeError('Cannot find ' + user1 + ' in the dataset')
 

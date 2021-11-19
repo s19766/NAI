@@ -53,7 +53,6 @@ def find_similar_users(dataset, user, num_users):
 if __name__ == '__main__':
     args = build_arg_parser().parse_args()
     user = args.user
-    #user = 'Paweł Czapiewski'
 
     ratings_file = 'dane.json'
 
@@ -85,9 +84,19 @@ if __name__ == '__main__':
         print(' - year: ' + str(movie['year']))
         print(' - rating: ' + str(movie['rating']))
         print(' - votes: ' + str(movie['votes']))
-        print(' - box office: ' + movie['box office']['Budget'])
-        for director in movie['directors']:
-            print(' - director: ' + director['name'])
+
+        box_office = ''
+        if 'box office' in movie:
+            box_office = movie['box office']['Budget']
+        else:
+            box_office = ' no data '
+        print(' - box office: ' + box_office)
+
+        if 'director' in movie:
+            for director in movie['directors']:
+                print(' - director: ' + director['name'])
+        else:
+            print(' - director: no data')
 
     not_recommended_movies = list(reversed(diff_dict.keys()))[:5]
     print('\nNot recommended movies : ')
