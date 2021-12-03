@@ -1,0 +1,16 @@
+Research: Attack range of a player playing in the Polish volleyball league
+
+Data {x}:
+- height [cm]
+- weight [kg]
+- age [years]
+- training internship [years]
+
+
+link {x}:
+* http://statystyka.pzps.pl/pl
+* wikipedia (to check internship)
+* siatkowka.net
+
+Data {y}:
+- attack range [cm] 
