@@ -1,6 +1,9 @@
 # Author: Damian Eggert s19766
 # Author: Adrian Paczewski s14973
 
+#https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
+#https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python
+
 """
 To run program install:
 pip install pandas
